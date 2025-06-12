@@ -14,7 +14,7 @@ const ImageGallery = () => {
   const [selectedFile, setSelectedFile] = useState(null);
 
   const api = axios.create({
-    baseURL: 'https://zeitkammerblick.vercel.app',
+    baseURL: 'http://localhost:4001',
     withCredentials: true,
     headers: {
       'Content-Type': 'application/json'

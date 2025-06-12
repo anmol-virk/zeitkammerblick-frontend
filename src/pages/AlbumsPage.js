@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://zeitkammerblick.vercel.app',
+  baseURL: 'http://localhost:4001',
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json'
@@ -16,8 +16,8 @@ const AlbumsPage = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [newAlbum, setNewAlbum] = useState({ name: '', description: '', sharedUsers: '' });
-  const [editingAlbum, setEditingAlbum] = useState(null);  // Tracks which album is being edited
-  const [sharingAlbumId, setSharingAlbumId] = useState(null); // For the album being shared
+  const [editingAlbum, setEditingAlbum] = useState(null);  
+  const [sharingAlbumId, setSharingAlbumId] = useState(null); 
   const [shareEmails, setShareEmails] = useState('');
 
   const fetchAlbums = async () => {
