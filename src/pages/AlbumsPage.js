@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:4001',
+  baseURL: 'https://zeitkammerblick.vercel.app',
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json'
