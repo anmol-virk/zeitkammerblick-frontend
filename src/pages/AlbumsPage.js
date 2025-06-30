@@ -139,17 +139,23 @@ const AlbumsPage = () => {
   };
 
   useEffect(() => {
-    const checkAuthAndFetch = async () => {
-      try {
-        await api.get('/me');
-        fetchAlbums();
-      } catch (err) {
-        setError("Authentication failed");
-      }
-    };
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('token');
   
-    checkAuthAndFetch();
+    if (token) {
+      localStorage.setItem('authToken', token);
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  
+    const storedToken = localStorage.getItem('authToken');
+    if (storedToken) {
+      api.defaults.headers.common['Authorization'] = `Bearer ${storedToken}`;
+      fetchAlbums();
+    } else {
+      setError("You must log in");
+    }
   }, []);
+  
   
 
   return (
