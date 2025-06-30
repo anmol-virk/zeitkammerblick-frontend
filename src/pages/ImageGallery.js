@@ -13,14 +13,16 @@ const ImageGallery = () => {
   const [tagsInput, setTagsInput] = useState('');
   const [selectedFile, setSelectedFile] = useState(null);
 
+  const token = localStorage.getItem('authToken');
+
   const api = axios.create({
     baseURL: 'https://zeitkammerblick.vercel.app',
-    withCredentials: true,
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      ...(token && { Authorization: `Bearer ${token}` })
     }
   });
-
+  
   useEffect(() => {
     fetchImages();
   }, [albumId]);
