@@ -139,10 +139,16 @@ const AlbumsPage = () => {
   };
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      fetchAlbums();
-    }, 500)
-    return () => clearTimeout(timeout)
+    const checkAuthAndFetch = async () => {
+      try {
+        await api.get('/me');
+        fetchAlbums();
+      } catch (err) {
+        setError("Authentication failed");
+      }
+    };
+  
+    checkAuthAndFetch();
   }, []);
   
 
