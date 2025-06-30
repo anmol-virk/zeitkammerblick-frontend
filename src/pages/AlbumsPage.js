@@ -139,8 +139,12 @@ const AlbumsPage = () => {
   };
 
   useEffect(() => {
-    fetchAlbums();
+    const timeout = setTimeout(() => {
+      fetchAlbums();
+    }, 500)
+    return () => clearTimeout(timeout)
   }, []);
+  
 
   return (
     <div className="container py-4">
