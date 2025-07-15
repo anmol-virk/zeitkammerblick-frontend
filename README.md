@@ -5,7 +5,7 @@ A full-stack image management app with Google OAuth login, JWT auth, album shari
 ---
 ## Quick Start
 
-````
+```
 git clone https://github.com/anmol-virk/zeitkammerblick-frontend.git
 cd <zeitkammerblick-frontend>
 npm install
@@ -35,7 +35,7 @@ npm start
 - Filter images by Tags.
 - Like, Comment, Delete and View Favorites images Functionality.
 
-*+Authentication**
+**Authentication**
 - User SignIn through Google OAuth
 - Routes are protected with JWT
 
